@@ -28,28 +28,28 @@ The system also includes **Gmail integration**, allowing supported CSV/TXT netwo
 <!-- Add your screenshots below by replacing the placeholder paths -->
 
 ### 🏠 Home Page
-<!-- ![Home Page](screenshots/home.png) -->
+![Home Page](screenshots/home.png)
 
 ### 📝 Register
-<!-- ![Register](screenshots/register.png) -->
+![Register](screenshots/register.png)
 
 ### 🔑 Login
-<!-- ![Login](screenshots/login.png) -->
+![Login](screenshots/login.png)
 
 ### 📊 Security Dashboard
-<!-- ![Dashboard](screenshots/dashboard.png) -->
+![Dashboard](screenshots/dashboard.png)
 
 ### 🔍 Intrusion Detection Scanner
-<!-- ![Scanner](screenshots/scanner.png) -->
+![Scanner](screenshots/scanner.png)
 
 ### 📈 Scan Results & Analysis
-<!-- ![Scan Results](screenshots/scan-results.png) -->
+![Scan Results](screenshots/scan-results.png)
 
 ### 📄 Security Reports
-<!-- ![Reports](screenshots/reports.png) -->
+![Reports](screenshots/reports.png)
 
 ### 📞 Contact
-<!-- ![Contact](screenshots/contact.png) -->
+![Contact](screenshots/contact.png)
 
 ---
 
