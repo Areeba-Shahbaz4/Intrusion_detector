@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI IDS | Security Dashboard</title>
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/dashboard.css') }}">
+</head>
+<body>
+    <div class="dashboard-container">
+        <!-- HEADER -->
+        <header class="dashboard-header">
+            <div class="brand">
+                <h1>
+                    🛡️ AI IDS
+                </h1>
+                <p>
+                    Zero Trust Security Monitoring Dashboard
+                </p>
+            </div>
+            <div class="header-actions">
+                <a href="/predict" class="scanner-top-btn">
+                    🔍 Scanner
+                </a>
+                <a href="/logout" class="logout-btn">
+                    Logout
+                </a>
+            </div>
+        </header>
+        <!-- PAGE TITLE -->
+        <section class="dashboard-intro">
+            <h2>
+                Security Overview
+            </h2>
+            <p>
+                Real-time AI-powered network intrusion analysis
+                and threat monitoring.
+            </p>
+        </section>
+        {% if latest %}
+        <!-- MAIN STATISTICS -->
+        <section class="stats-grid">
+            <div class="stat-card">
+                <span class="stat-icon">
+                    📊
+                </span>
+                <div>
+                    <h3>
+                        Total Records
+                    </h3>
+                    <strong>
+                        {{ latest[0] }}
+                    </strong>
+                </div>
+            </div>
+            <div class="stat-card normal-card">
+                <span class="stat-icon">
+                    🟢
+                </span>
+                <div>
+                    <h3>
+                        Normal Traffic
+                    </h3>
+                    <strong>
+                        {{ latest[1] }}
+                    </strong>
+                </div>
+            </div>
+            <div class="stat-card attack-card">
+                <span class="stat-icon">
+                    🔴
+                </span>
+                <div>
+                    <h3>
+                        Attack Traffic
+                    </h3>
+                    <strong>
+                        {{ latest[2] }}
+                    </strong>
+                </div>
+            </div>
+            <div class="stat-card">
+                <span class="stat-icon">
+                    📈
+                </span>
+                <div>
+                    <h3>
+                        Attack Rate
+                    </h3>
+                    <strong>
+                        {{ latest[3] }}%
+                    </strong>
+                </div>
+            </div>
+            <div class="stat-card status-card">
+                <span class="stat-icon">
+                    🛡️
+                </span>
+                <div>
+                    <h3>
+                        Security Status
+                    </h3>
+                    <strong>
+                        {% if latest[4] == "CRITICAL" %}
+                        🔴 CRITICAL
+                        {% elif latest[4] == "HIGH RISK" %}
+                        🟠 HIGH RISK
+                        {% elif latest[4] == "MEDIUM RISK" %}
+                        🟡 MEDIUM RISK
+                        {% else %}
+                        🟢 LOW RISK
+                        {% endif %}
+                    </strong>
+                </div>
+            </div>
+        </section>
+        <!-- AI MODEL ANALYSIS -->
+        <section class="analysis-section">
+            <div class="section-heading">
+                <h2>
+                    🤖 AI Model Analysis
+                </h2>
+                <p>
+                    Machine Learning and Deep Learning detection results.
+                </p>
+            </div>
+            <div class="model-grid">
+                <!-- ML -->
+                <div class="model-card">
+                    <div class="model-header">
+                        <h3>
+                            Machine Learning
+                        </h3>
+                        <span class="active-badge">
+                            ACTIVE
+                        </span>
+                    </div>
+                    <div class="model-stat">
+                        <span>
+                            Normal
+                        </span>
+                        <strong>
+                            {{ latest[5] }}
+                        </strong>
+                    </div>
+                    <div class="model-stat">
+                        <span>
+                            Attacks
+                        </span>
+                        <strong>
+                            {{ latest[6] }}
+                        </strong>
+                    </div>
+                    <div class="model-stat">
+                        <span>
+                            Attack Rate
+                        </span>
+                        <strong>
+                            {{ latest[7] }}%
+                        </strong>
+                    </div>
+                    <div class="confidence">
+                        <span>
+                            Confidence
+                        </span>
+                        <strong>
+                            {{ latest[8] }}%
+                        </strong>
+                    </div>
+                </div>
+                <!-- DL -->
+                <div class="model-card">
+                    <div class="model-header">
+                        <h3>
+                            Deep Learning
+                        </h3>
+                        <span class="active-badge">
+                            ACTIVE
+                        </span>
+                    </div>
+                    <div class="model-stat">
+                        <span>
+                            Normal
+                        </span>
+                        <strong>
+                            {{ latest[9] }}
+                        </strong>
+                    </div>
+                    <div class="model-stat">
+                        <span>
+                            Attacks
+                        </span>
+                        <strong>
+                            {{ latest[10] }}
+                        </strong>
+                    </div>
+                    <div class="model-stat">
+                        <span>
+                            Attack Rate
+                        </span>
+                        <strong>
+                            {{ latest[11] }}%
+                        </strong>
+                    </div>
+                    <div class="confidence">
+                        <span>
+                            Confidence
+                        </span>
+                        <strong>
+                            {{ latest[12] }}%
+                        </strong>
+                    </div>
+                </div>
+                <!-- MODEL AGREEMENT -->
+                <div class="model-card agreement-card">
+                    <div class="model-header">
+                        <h3>
+                            Model Agreement
+                        </h3>
+                        <span class="active-badge">
+                            AI
+                        </span>
+                    </div>
+                    <div class="agreement-value">
+                
+                        {{ latest[14] }}%
+                
+                    </div>
+                    <p>
+                        {{ latest[13] }}
+                        records detected consistently
+                        by both AI models.
+                    </p>
+                </div>
+                </section>
+                <!-- DETECTION CHART -->
+                <section class="chart-section">
+                    <div class="section-heading">
+                        <h2>
+                            📊 Detection Analysis
+                        </h2>
+                        <p>
+                            Latest normal versus attack traffic analysis.
+                        </p>
+                    </div>
+                    <div class="chart-container">
+                        <img src="{{ url_for('static', filename='charts/detection_analysis.png') }}" alt="AI Detection Analysis Chart">
+                    </div>
+                </section>
+                <!-- SCANNER ACTION -->
+                <section class="scanner-section">
+                    <div>
+                        <h2>
+                            Ready to scan network traffic?
+                        </h2>
+                        <p>
+                            Upload a supported traffic dataset and let
+                            the AI detection engine analyze it.
+                        </p>
+                    </div>
+                    <a href="/predict" class="scanner-btn">
+                        🔍 Start AI Scan
+                    </a>
+                </section>
+                <!-- RECENT HISTORY -->
+                <section class="history-section">
+                    <div class="section-heading">
+                        <h2>
+                            🕒 Recent Detection History
+                        </h2>
+                        <p>
+                            Latest security scans recorded by the system.
+                        </p>
+                    </div>
+                    {% if history %}
+                    <div class="table-container">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>
+                                        Total
+                                    </th>
+                                    <th>
+                                        Normal
+                                    </th>
+                                    <th>
+                                        Attacks
+                                    </th>
+                                    <th>
+                                        Attack %
+                                    </th>
+                                    <th>
+                                        Security Status
+                                    </th>
+                                    <th>
+                                        Scan Time
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for row in history %}
+                                <tr>
+                                    <td>
+                                        {{ row[0] }}
+                                    </td>
+                                    <td class="normal-text">
+                                        {{ row[1] }}
+                                    </td>
+                                    <td class="attack-text">
+                                        {{ row[2] }}
+                                    </td>
+                                    <td>
+                                        {{ row[3] }}%
+                                    </td>
+                                    <td>
+                                        {% if row[4] == "CRITICAL" %}
+                                            <span class="status critical">
+                                                🔴 CRITICAL
+                                            </span>
+                                        {% elif row[4] == "HIGH RISK" %}
+                                            <span class="status high">
+                                                🟠 HIGH RISK
+                                            </span>
+                                        {% elif row[4] == "MEDIUM RISK" %}
+                                            <span class="status medium">
+                                                🟡 MEDIUM RISK
+                                            </span>
+                                        {% else %}
+                                            <span class="status low">
+                                                🟢 LOW RISK
+                                            </span>
+                                        {% endif %}
+                                    </td>
+                                    <td>
+                                        {{ row[5] }}
+                                    </td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                    {% else %}
+                    <div class="empty-history">
+                        <h3>
+                            No Previous Scans
+                        </h3>
+                        <p>
+                            Run your first AI intrusion scan to populate
+                            the security history.
+                        </p>
+                    </div>
+                    {% endif %}
+                </section>
+                {% else %}
+                <!-- NO SCAN STATE -->
+                <section class="no-scan">
+                    <div class="no-scan-icon">
+                        🛡️
+                    </div>
+                    <h2>
+                        No Security Scan Available
+                    </h2>
+                    <p>
+                        Upload a network traffic dataset to start
+                        AI-powered intrusion detection.
+                    </p>
+                    <a href="/predict" class="scanner-btn">
+                        🔍 Start First Scan
+                    </a>
+                </section>
+                {% endif %}
+                <!-- SYSTEM STATUS -->
+                <section class="system-status">
+                    <div class="section-heading">
+                        <h2>
+                            ⚙️ System Status
+                        </h2>
+                        <p>
+                            Current security infrastructure status.
+                        </p>
+                    </div>
+                    <div class="system-grid">
+                        <div class="system-item">
+                            <span>
+                                🟢
+                            </span>
+                            <div>
+                                <strong>
+                                    AI Models
+                                </strong>
+                                <small>
+                                    Active
+                                </small>
+                            </div>
+                        </div>
+                        <div class="system-item">
+                            <span>
+                                🟢
+                            </span>
+                            <div>
+                                <strong>
+                                    Machine Learning Engine
+                                </strong>
+                                <small>
+                                    Active
+                                </small>
+                            </div>
+                        </div>
+                        <div class="system-item">
+                            <span>
+                                🟢
+                            </span>
+                            <div>
+                                <strong>
+                                    Deep Learning Engine
+                                </strong>
+                                <small>
+                                    Active
+                                </small>
+                            </div>
+                        </div>
+                        <div class="system-item">
+                            <span>
+                                🟢
+                            </span>
+                            <div>
+                                <strong>
+                                    Zero Trust Authentication
+                                </strong>
+                                <small>
+                                    Active
+                                </small>
+                            </div>
+                        </div>
+                        <div class="system-item">
+                            <span>
+                                🟢
+                            </span>
+                            <div>
+                                <strong>
+                                    Database Monitoring
+                                </strong>
+                                <small>
+                                    Active
+                                </small>
+                            </div>
+                        </div>
+                        <div class="system-item">
+                            <span>
+                                🟢
+                            </span>
+                            <div>
+                                <strong>
+                                    Threat Detection
+                                </strong>
+                                <small>
+                                    Active
+                                </small>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <!-- FOOTER -->
+                <footer class="dashboard-footer">
+                    <p>
+                        🛡️ AI Intrusion Detection System
+                    </p>
+                    <span>
+                        Zero Trust • Machine Learning • Deep Learning
+                    </span>
+                </footer>
+    </div>
+</body>
+</html>

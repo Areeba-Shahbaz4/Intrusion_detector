@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>AI Intrusion Detection System</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    </head>
+    <body>   
+        <!-- NAVIGATION BAR -->
+        <nav class="navbar">
+            <div class="logo">
+                🛡 AI IDS
+            </div>
+            <ul class="nav-links">
+                <li>
+                    <a href="/">
+                        Home
+                    </a>
+                </li>
+                <li>
+                    <a href="/dashboard">
+                        Dashboard
+                    </a>
+                </li>
+                <li>
+                    <a href="/reports">
+                        Reports
+                    </a>
+                </li>
+                <li>
+                    <a href="/about">
+                        About
+                    </a>
+                </li>
+                <li>
+                    <a href="/contact">
+                        Contact
+                    </a>
+                </li>
+            </ul>
+        </nav>
+        <!-- HERO SECTION -->
+        <section class="hero">
+            <h1>
+                AI Intrusion Detection System
+            </h1>
+            <h3>
+                AI Powered Zero Trust Security Platform
+            </h3>
+            <p>
+                Detect cyber attacks using Artificial Intelligence,
+                monitor network activities and generate smart
+                security alerts.
+            </p>
+            <div class="buttons">
+                <!-- GET STARTED -->
+                <a
+                    href="{{ url_for('register') }}" class="btn-primary">    
+                    Get Started
+                </a>    
+                <!-- LEARN MORE -->
+                <a
+                    href="#about" class="btn-secondary">    
+                Learn More
+                </a>    
+            </div>        
+        </section>        
+        <!-- ABOUT SECTION -->
+        <section id="about" class="home-section">
+            <h2>
+                About AI IDS
+            </h2>
+            <p>
+                AI IDS is a Zero Trust based Intrusion Detection
+                System designed to analyze network traffic using
+                Artificial Intelligence.
+            </p>    
+            <p>
+                The system combines Machine Learning and
+                Deep Learning models to identify suspicious
+                and potentially malicious network activity.
+            </p>    
+            
+        </section>    
+        <!-- SECURITY FEATURES -->
+        <section class="home-section">
+            <h2>
+                Security Intelligence
+            </h2>    
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <h3>
+                        🤖 AI Detection
+                    </h3>
+                    <p>
+                        Machine Learning and Deep Learning
+                        analyze network traffic for potential
+                        threats.
+                    </p>
+                </div>
+                <div class="feature-card">
+                    <h3>
+                        🔐 Zero Trust
+                    </h3>
+                    <p>
+                        Every authenticated request is treated
+                        as untrusted until properly verified.
+                    </p>
+                </div>        
+                <div class="feature-card">
+                    <h3>
+                        📊 Security Analytics
+                    </h3>
+                    <p>
+                        Detection results are stored and
+                        presented through security reports
+                        and analytics.
+                    </p>
+                </div>
+                <div class="feature-card">
+                    <h3>
+                        🛡 Threat Detection
+                    </h3>
+                    <p>
+                        The system identifies normal and
+                        suspicious traffic and calculates
+                        security risk levels.
+                    </p>
+                </div>
+            </div>
+        </section>
+             <!-- CONTACT SECTION -->
+             <section id="contact" class="home-section">
+                 <h2>
+                     Contact
+                </h2>    
+                <p>
+                    AI IDS Security Platform
+                </p>    
+                <p>
+                    For project information and security
+                    research inquiries, please use the
+                    available project channels.
+                </p>    
+            </section>    
+            <!-- REPORTS SECTION -->
+            <section id="reports" class="info-section">
+                <h2>
+                    Security Reports
+                </h2>
+                <p>
+                    Analyze your latest AI-based intrusion detection
+                    results and review security activity.
+                </p>
+                <a href="{{ url_for('dashboard') }}" class="btn-primary">
+                    View Dashboard
+                </a>
+            </section>
+        <!-- FOOTER -->
+        <footer class="home-footer">
+            <p>
+                © 2026 AI Intrusion Detection System
+            </p>    
+            <p>
+                Zero Trust • Artificial Intelligence • Cyber Security
+            </p>    
+        </footer>    
+</body>                                
+</html>

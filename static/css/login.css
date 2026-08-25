@@ -1,0 +1,53 @@
+body{
+
+    background:#07111f;
+
+    font-family:Arial;
+
+}
+
+.login-box{
+
+    width:350px;
+
+    margin:120px auto;
+
+    background:#111827;
+
+    padding:40px;
+
+    border-radius:10px;
+
+    text-align:center;
+
+    color:white;
+
+}
+
+input{
+
+    width:90%;
+
+    padding:12px;
+
+    border-radius:6px;
+
+    border:none;
+
+}
+
+button{
+
+    width:100%;
+
+    padding:12px;
+
+    background:#00e5ff;
+
+    border:none;
+
+    cursor:pointer;
+
+    font-size:18px;
+
+}

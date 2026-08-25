@@ -1,0 +1,536 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #000000;
+    color: #ffffff;
+    font-family: Arial, Helvetica, sans-serif;
+    min-height: 100vh;
+}
+/* ==========================
+   NAVBAR
+========================== */
+
+.navbar {
+    height: 75px;
+    padding: 0 6%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    background: #050505;
+    border-bottom: 1px solid #00e5ff;
+    
+
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo {
+    font-size: 21px;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.nav-links {
+    display: flex;
+    gap: 30px;
+}
+
+.nav-links a {
+    color: #bdbdbd;
+    text-decoration: none;
+    font-size: 15px;
+    transition: 0.3s;
+}
+
+.nav-links a:hover {
+    color: #ffffff;
+}
+
+
+/* ==========================
+   MAIN
+========================== */
+
+.scanner-container {
+    width: 92%;
+    max-width: 1250px;
+    margin: auto;
+    padding: 70px 0;
+}
+
+
+/* ==========================
+   HEADER
+========================== */
+
+.scanner-header {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.badge {
+    display: inline-block;
+
+    border: 1px solid #00e5ff;
+    border-radius: 30px;
+
+    padding: 8px 18px;
+
+    color: #fffcfc;
+
+    font-size: 12px;
+    letter-spacing: 2px;
+}
+
+.scanner-header h1 {
+    margin-top: 20px;
+
+    font-size: 48px;
+    font-weight: 700;
+
+    color: #00e5ff;
+}
+
+.scanner-header > p:last-child {
+    max-width: 720px;
+
+    margin: 20px auto 0;
+
+    color: #cac9c9;
+
+    font-size: 17px;
+    line-height: 1.7;
+}
+
+
+/* ==========================
+   UPLOAD CARD
+========================== */
+
+.upload-card {
+    max-width: 750px;
+    margin: auto;
+
+    padding: 45px;
+
+    text-align: center;
+
+    background: #080808;
+
+    border: 1px solid #00e5ff;
+    border-radius: 20px;
+
+    box-shadow:
+        0 20px 60px rgba(0, 0, 0, 0.7);
+}
+
+.upload-icon {
+    font-size: 45px;
+    margin-bottom: 20px;
+}
+
+.upload-card h2 {
+    font-size: 25px;
+}
+
+.upload-card p {
+    margin-top: 10px;
+    color: #989696;
+}
+
+
+/* ==========================
+   FILE INPUT
+========================== */
+
+.file-label {
+    display: block;
+
+    margin: 30px auto;
+
+    width: 100%;
+
+    padding: 18px;
+
+    border: 1px dashed #00e5ff;
+    border-radius: 12px;
+
+    cursor: pointer;
+
+    color: #fff9f9;
+
+    transition: 0.3s;
+}
+
+.file-label:hover {
+    border-color: #000000;
+    background: #00e5ff;
+    color: #000000;
+}
+
+.file-label input {
+    display: block;
+    margin: 12px auto 0;
+}
+
+
+/* ==========================
+   SCAN BUTTON
+========================== */
+
+.scan-btn {
+    border: none;
+
+    padding: 15px 35px;
+
+    border-radius: 10px;
+
+    background: #ffffff;
+    color: #000000;
+
+    font-size: 16px;
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+.scan-btn:hover {
+    background: #00e5ff;
+    transform: translateY(-2px);
+}
+
+
+/* ==========================
+   ERROR
+========================== */
+
+.error-box {
+    max-width: 750px;
+    margin: 25px auto;
+
+    padding: 18px;
+
+    border: 1px solid #4a2020;
+    border-radius: 10px;
+
+    background: #160909;
+
+    color: #ff8c8c;
+
+    text-align: center;
+}
+
+
+/* ==========================
+   RESULTS
+========================== */
+
+ .results-section {
+    margin-top: 60px;
+}
+.result-heading {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 25px;
+}
+.result-heading h2 {
+    font-size: 25px;
+}
+.status-dot {
+    width: 10px;
+    height: 10px;
+    background: #ffffff;
+    border-radius: 50%;
+    box-shadow:
+        0 0 12px rgba(225, 3, 3, 0.7);
+        /* 0 0 12px rgba(255,255,255,0.7); */
+}
+/* ==========================
+   RISK CARD
+========================== */
+ .risk-card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 30px;
+    background: #080808;
+    border: 1px solid #00e5ff;
+    border-radius: 18px;
+    margin-bottom: 20px;
+}
+.result-label {
+    color: #918f8f;
+    font-size: 13px;
+}
+.risk-card h2 {
+    margin-top: 8px;
+    font-size: 28px;
+    color: #ffffff;
+}
+.risk-percentage {
+    font-size: 35px;
+    font-weight: bold;
+    text-align: right;
+}
+.risk-percentage small {
+    display: block;
+    margin-top: 5px;
+    font-size: 12px;
+    font-weight: normal;
+    color: #9a9595;
+}
+/* ==========================
+   STAT CARDS
+========================== */
+ .stats-grid {
+    display: grid;
+    grid-template-columns:
+        repeat(4, 1fr);
+    gap: 15px;
+    margin-bottom: 25px;
+}
+.stat-card {
+    padding: 25px;
+    background: #080808;
+    border: 1px solid #00e5ff;
+    border-radius: 15px;
+}
+.stat-card span {
+    display: block;
+    color: #777777;
+    font-size: 13px;
+    margin-bottom: 12px;
+}
+.stat-card strong {
+    font-size: 27px;
+}
+.stat-card.normal {
+    border-top: 2px solid #ffffff;
+}
+.stat-card.attack {
+    border-top: 2px solid #9e5353;
+}
+/* ==========================
+   MODEL CARDS
+========================== */
+ .models-grid {
+    display: grid;
+    grid-template-columns:
+        repeat(2, 1fr);
+    gap: 20px;
+}
+.model-card {
+    padding: 28px;
+    background: #080808;
+    border: 1px solid #00e5ff;
+    border-radius: 18px;
+}
+.model-title {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 25px;
+}
+.model-icon {
+    font-size: 30px;
+}
+.model-title h3 {
+    font-size: 20px;
+}
+.model-title p {
+    margin-top: 5px;
+    color: #707070;
+    font-size: 13px;
+}
+.model-stats {
+    display: grid;
+    grid-template-columns:
+        repeat(2, 1fr);
+    gap: 15px;
+}
+.model-stats div {
+    padding: 15px;
+    background: #050505;
+    border: 1px solid #1d1d1d;
+    border-radius: 10px;
+}
+.model-stats span {
+    display: block;
+    color: #707070;
+    font-size: 12px;
+    margin-bottom: 7px;
+}
+.model-stats strong {
+    font-size: 19px;
+}
+/* ==========================
+   AGREEMENT
+========================== */
+ .agreement-card {
+    margin-top: 20px;
+    padding: 25px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 30px;
+    background: #080808;
+    border: 1px solid #00e5ff;
+    border-radius: 16px;
+}
+.agreement-card span {
+    color: #777777;
+    font-size: 13px;
+}
+.agreement-card h3 {
+    margin-top: 6px;
+    font-size: 27px;
+}
+.agreement-card p {
+    color: #777777;
+    line-height: 1.6;
+    text-align: right;
+}
+/* ==========================
+   CHART
+========================== */
+.chart-card {
+    margin-top: 25px;
+    padding: 30px;
+    background: #080808;
+    border: 1px solid #00e5ff;
+    border-radius: 18px;
+}
+.chart-header h2 {
+    font-size: 22px;
+}
+.chart-header p {
+    margin-top: 7px;
+    color: #707070;
+}
+.chart-card img {
+    display: block;
+    width: 100%;
+    max-width: 850px;
+    margin: 30px auto 0;
+    border-radius: 10px;
+    background: #ffffff;
+}
+/* ==========================
+   RESPONSIVE
+========================== */
+ @media (max-width: 900px) {
+    .stats-grid {
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+    .models-grid {
+        grid-template-columns: 1fr;
+    }
+    .scanner-header h1 {
+        font-size: 38px;
+    }
+}
+@media (max-width: 600px) {
+    .scanner-container {
+        width: 94%;
+        padding: 45px 0;
+    }
+    .navbar {
+        padding: 0 4%;
+    }
+    .nav-links {
+        gap: 15px;
+    }
+    .stats-grid {
+        grid-template-columns: 1fr;
+    }
+    .risk-card {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 20px;
+    }
+    .risk-percentage {
+        text-align: left;
+    }
+    .agreement-card {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .agreement-card p {
+        text-align: left;
+    }
+    .upload-card {
+        padding: 30px 20px;
+    }
+}
+/* ==========================
+   GMAIL SCAN
+========================== */
+
+.gmail-scan-section {
+    max-width: 750px;
+    margin: 30px auto 0;
+    padding: 30px;
+
+    text-align: center;
+
+    background: #080808;
+
+    border: 1px solid #00e5ff;
+    border-radius: 18px;
+
+    box-shadow:
+        0 15px 45px rgba(0, 0, 0, 0.5);
+}
+
+.gmail-icon {
+    font-size: 35px;
+    margin-bottom: 12px;
+}
+
+.gmail-scan-section h3 {
+    font-size: 22px;
+    color: #ffffff;
+    margin-bottom: 10px;
+}
+
+.gmail-scan-section p {
+    color: #777777;
+    font-size: 14px;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.gmail-btn {
+    display: inline-block;
+
+    padding: 14px 25px;
+
+    border-radius: 10px;
+
+    background: #ffffff;
+    color: #000000;
+
+    text-decoration: none;
+
+    font-size: 14px;
+    font-weight: bold;
+
+    transition: 0.3s;
+}
+
+.gmail-btn:hover {
+    background: #00e5ff;
+    color: #000000;
+
+    transform: translateY(-2px);
+}

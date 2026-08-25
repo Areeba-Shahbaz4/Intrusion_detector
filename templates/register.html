@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register - AI IDS </title>
+    <link rel="stylesheet" href="{{url_for('static', filename='css/login.css' )}}">
+</head>
+<body>
+    <div class="login-box">
+        <h1>Create Account</h1>
+        <form action="/register" method="POST">
+            <input type="text" name="full_name" placeholder="Fullname">
+            <br><br>
+            <input type="text" name="username" placeholder="username">
+            <br><br>
+            <input type="Email" name="email" placeholder="Email Address">
+            <br><br>
+            <input type="password" name="password" placeholder="Password">
+            <br><br>
+            <button>
+                Create Account
+            </button>
+        </form>
+        <p class="auth-switch">
+            Already have an Account?
+            <a href="{{url_for('login')}}">
+                Login
+            </a>
+        </p>
+    </div>
+</body>
+</html>

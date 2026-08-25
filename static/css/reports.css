@@ -1,0 +1,468 @@
+/* ==========================================================
+   ZERO TRUST AI INTRUSION DETECTION SYSTEM
+   SECURITY REPORTS
+   ========================================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    min-height: 100vh;
+    background: #05070a;
+    color: #ffffff;
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.5;
+}
+
+
+/* ==========================================================
+   MAIN CONTAINER
+   ========================================================== */
+
+.reports-container {
+    width: 92%;
+    max-width: 1450px;
+    margin: 0 auto;
+    padding: 40px 0 70px;
+}
+
+
+/* ==========================================================
+   HEADER
+   ========================================================== */
+
+.reports-header {
+    width: 100%;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    background: #0b1220;
+
+    border: 1px solid #225476;
+    border-radius: 18px;
+
+    padding: 24px 30px;
+    margin-bottom: 30px;
+
+    box-shadow:
+        0 10px 35px rgba(0, 229, 255, 0.08);
+}
+
+.reports-header h1 {
+    color: #00e5ff;
+    font-size: 30px;
+    font-weight: 700;
+}
+
+.reports-header p {
+    margin-top: 7px;
+    color: #90caf9;
+    font-size: 14px;
+}
+
+
+/* ==========================================================
+   HEADER ACTIONS
+   ========================================================== */
+
+.header-actions {
+    display: flex;
+    gap: 12px;
+}
+
+.back-btn,
+.logout-btn {
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 10px 20px;
+
+    color: #ffffff;
+    background: #080b10;
+
+    border: 1px solid #00e5ff;
+    border-radius: 9px;
+
+    text-decoration: none;
+
+    font-size: 14px;
+    font-weight: bold;
+
+    transition: all 0.3s ease;
+}
+
+.back-btn:hover,
+.logout-btn:hover {
+    color: #050a14;
+    background: #00e5ff;
+
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 0 18px rgba(0, 229, 255, 0.35);
+}
+
+
+/* ==========================================================
+   INTRO SECTION
+   ========================================================== */
+
+.report-intro {
+    margin-bottom: 25px;
+}
+
+.report-intro h2 {
+    color: #00e5ff;
+    font-size: 24px;
+    margin-bottom: 7px;
+}
+
+.report-intro p {
+    color: #90caf9;
+    font-size: 14px;
+}
+
+
+/* ==========================================================
+   REPORT CARD
+   ========================================================== */
+
+.report-card {
+    width: 100%;
+
+    padding: 25px;
+
+    background: #080b10;
+
+    border: 1px solid #18364a;
+    border-radius: 16px;
+
+    box-shadow:
+        0 0 25px rgba(0, 229, 255, 0.03);
+}
+
+
+/* ==========================================================
+   TABLE
+   ========================================================== */
+
+.table-container {
+    width: 100%;
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    min-width: 900px;
+
+    border-collapse: collapse;
+}
+
+thead {
+    background: #111923;
+}
+
+th {
+    padding: 15px;
+
+    text-align: left;
+
+    color: #90caf9;
+
+    font-size: 12px;
+    font-weight: 600;
+
+    text-transform: uppercase;
+
+    letter-spacing: 0.7px;
+
+    border-bottom: 1px solid #18364a;
+}
+
+td {
+    padding: 15px;
+
+    color: #ffffff;
+
+    font-size: 13px;
+
+    border-bottom: 1px solid #12263a;
+}
+
+tbody tr {
+    transition: background 0.25s ease;
+}
+
+tbody tr:hover {
+    background: #0d1a2b;
+}
+
+tbody tr:last-child td {
+    border-bottom: none;
+}
+
+
+/* ==========================================================
+   NORMAL / ATTACK VALUES
+   ========================================================== */
+
+.normal {
+    color: #42d392;
+    font-weight: 700;
+}
+
+.attack {
+    color: #ff4d5a;
+    font-weight: 700;
+}
+
+
+/* ==========================================================
+   SECURITY STATUS
+   ========================================================== */
+
+.status {
+    display: inline-flex;
+
+    align-items: center;
+
+    padding: 6px 10px;
+
+    border-radius: 7px;
+
+    font-size: 11px;
+    font-weight: 700;
+
+    white-space: nowrap;
+}
+
+.status.critical {
+    color: #ff4d5a;
+    background: rgba(255, 77, 90, 0.10);
+
+    border: 1px solid rgba(255, 77, 90, 0.35);
+}
+
+.status.high {
+    color: #ff9f43;
+    background: rgba(255, 159, 67, 0.10);
+
+    border: 1px solid rgba(255, 159, 67, 0.35);
+}
+
+.status.medium {
+    color: #f5b942;
+    background: rgba(245, 185, 66, 0.10);
+
+    border: 1px solid rgba(245, 185, 66, 0.35);
+}
+
+.status.low {
+    color: #42d392;
+    background: rgba(66, 211, 146, 0.10);
+
+    border: 1px solid rgba(66, 211, 146, 0.35);
+}
+
+
+/* ==========================================================
+   NO REPORTS
+   ========================================================== */
+
+.no-reports {
+    width: 100%;
+
+    padding: 70px 30px;
+
+    text-align: center;
+
+    background: #0b1220;
+
+    border: 1px solid #18364a;
+    border-radius: 16px;
+
+    box-shadow:
+        0 0 25px rgba(0, 229, 255, 0.03);
+}
+
+.empty-icon {
+    font-size: 55px;
+    margin-bottom: 15px;
+}
+
+.no-reports h2 {
+    color: #00e5ff;
+    margin-bottom: 10px;
+}
+
+.no-reports p {
+    color: #90caf9;
+    margin-bottom: 25px;
+}
+
+
+/* ==========================================================
+   SCANNER BUTTON
+   ========================================================== */
+
+.scanner-btn {
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 13px 25px;
+
+    color: #000000;
+    background: #ffffff;
+
+    border: 1px solid #00e5ff;
+    border-radius: 9px;
+
+    text-decoration: none;
+
+    font-size: 14px;
+    font-weight: 700;
+
+    transition: all 0.3s ease;
+}
+
+.scanner-btn:hover {
+    color: #ffffff;
+    background: #05070a;
+
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 0 22px rgba(0, 229, 255, 0.18);
+}
+
+
+/* ==========================================================
+   FOOTER
+   ========================================================== */
+
+.reports-footer {
+    display: flex;
+
+    justify-content: center;
+    flex-wrap: wrap;
+
+    gap: 15px;
+
+    margin-top: 25px;
+}
+
+.reports-footer p {
+    padding: 9px 15px;
+
+    color: #ffffff;
+
+    background: #10161e;
+
+    border: 1px solid #18364a;
+    border-radius: 8px;
+
+    font-size: 12px;
+}
+
+
+/* ==========================================================
+   TABLET
+   ========================================================== */
+
+@media (max-width: 800px) {
+
+    .reports-container {
+        width: 94%;
+        padding: 25px 0 50px;
+    }
+
+    .reports-header {
+        flex-direction: column;
+        gap: 18px;
+
+        text-align: center;
+
+        padding: 22px;
+    }
+
+    .reports-header h1 {
+        font-size: 25px;
+    }
+
+    .header-actions {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .report-card {
+        padding: 18px;
+    }
+}
+
+
+/* ==========================================================
+   MOBILE
+   ========================================================== */
+
+@media (max-width: 550px) {
+
+    .reports-container {
+        width: 94%;
+        padding-top: 18px;
+    }
+
+    .reports-header {
+        border-radius: 14px;
+        padding: 20px 15px;
+    }
+
+    .reports-header h1 {
+        font-size: 21px;
+    }
+
+    .reports-header p {
+        font-size: 12px;
+    }
+
+    .header-actions {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .back-btn,
+    .logout-btn {
+        width: 100%;
+    }
+
+    .report-card {
+        padding: 14px;
+    }
+
+    th,
+    td {
+        padding: 11px 9px;
+        font-size: 11px;
+    }
+
+    .reports-footer {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .reports-footer p {
+        text-align: center;
+    }
+}

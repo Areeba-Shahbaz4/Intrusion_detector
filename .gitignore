@@ -1,0 +1,93 @@
+# ==========================
+# PYTHON
+# ==========================
+
+__pycache__/
+*.py[cod]
+*$py.class
+
+# ==========================
+# VIRTUAL ENVIRONMENT
+# ==========================
+
+venv/
+.venv/
+env/
+ENV/
+
+# ==========================
+# SECRETS / ENVIRONMENT
+# ==========================
+
+.env
+.env.*
+!.env.example
+
+credentials.json
+token.json
+client_secret*.json
+
+# ==========================
+# DATABASE
+# ==========================
+
+*.db
+*.sqlite
+*.sqlite3
+
+# ==========================
+# UPLOADS
+# ==========================
+
+uploads/*
+!uploads/.gitkeep
+
+# ==========================
+# GENERATED CHARTS
+# ==========================
+
+static/charts/*
+!static/charts/.gitkeep
+
+# ==========================
+# MACHINE LEARNING MODELS
+# ==========================
+
+models/*.pkl
+models/*.joblib
+models/*.keras
+models/*.h5
+models/*.sav
+
+# ==========================
+# JUPYTER
+# ==========================
+
+.ipynb_checkpoints/
+
+# ==========================
+# IDE
+# ==========================
+
+.vscode/
+.idea/
+
+# ==========================
+# OS FILES
+# ==========================
+
+.DS_Store
+Thumbs.db
+
+# ==========================
+# LOGS
+# ==========================
+
+*.log
+
+# ==========================
+# DATASETS
+# ==========================
+
+dataset/*
+!dataset/README.md

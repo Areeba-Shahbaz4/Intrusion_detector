@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Intrusion Detection Scanner</title>
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='css/predict.css') }}"
+    >
+</head>
+<body>
+    <!-- NAVIGATION -->
+    <nav class="navbar">
+        <div class="logo">
+            🛡️ ZERO TRUST AI
+        </div>
+        <div class="nav-links">
+            <a href="/dashboard">
+                Dashboard
+            </a>
+            <a href="/logout">
+                Logout
+            </a>
+        </div>
+    </nav>
+    <!-- MAIN CONTAINER -->
+    <main class="scanner-container">
+        <!-- HEADER -->
+        <section class="scanner-header">
+            <p class="badge">
+                AI SECURITY ENGINE
+            </p>
+            <h1>
+                Intrusion Detection Scanner
+            </h1>
+            <p>
+                Upload network traffic data and let the
+                AI security engine analyze it using
+                Machine Learning and Deep Learning.
+            </p>
+        </section>
+        <!-- UPLOAD CARD -->
+        <section class="upload-card">
+            <div class="upload-icon">
+                🛡️
+            </div>
+            <h2>
+                Scan Network Traffic
+            </h2>
+            <p>
+                Upload an NSL-KDD compatible CSV or TXT file.
+            </p>
+            <form
+                action="/predict"
+                method="POST"
+                enctype="multipart/form-data"
+                >
+                <label class="file-label">
+                    <span>
+                        Choose Dataset
+                    </span>
+                    <input type="file" name="file" accept=".csv,.txt" required>
+                </label>
+                <button type="submit" class="scan-btn">
+                    🔍 Scan with AI 
+                </button>
+            </form>
+        </section>
+        <!-- GMAIL SCAN -->
+        <section class="gmail-scan-section">
+            <div class="gmail-icon">
+                📧
+            </div>
+
+            <h3>
+                Scan from Gmail
+            </h3>
+
+            <p>
+                Connect Gmail and automatically analyze
+                a supported network-traffic attachment.
+            </p>
+
+            <a href="{{ url_for('gmail_scan') }}" class="gmail-btn">
+                🔐 Connect Gmail & Scan
+            </a>
+        </section>
+        <!-- ERROR MESSAGE -->
+        {% if error %}
+        <div class="error-box">
+            ⚠️ {{ error }}
+        </div>
+        {% endif %}
+        <!-- RESULTS -->
+        {% if result %}
+        <section class="results-section">
+            <!-- RESULT HEADING -->
+            <div class="result-heading">
+                <span class="status-dot"></span>
+                <h2>
+                    Security Analysis Complete
+                </h2>
+            </div>
+            <!-- SECURITY STATUS -->
+            <div class="risk-card">
+                <div>
+                    <span class="result-label">
+                        Overall Security Status
+                    </span>
+                    <h2>
+                        {{ result.security_status }}
+                    </h2>
+                </div>
+                <div class="risk-percentage">
+                    {{ result.attack_percentage }}%
+                    <small>
+                        Attack Traffic
+                    </small>
+                </div>
+            </div>
+            <!-- BASIC STATISTICS -->
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <span>
+                        Total Records
+                    </span>
+                    <strong>
+                        {{ result.total_records }}
+                    </strong>
+                </div>
+                <div class="stat-card normal">
+                    <span>
+                        Normal Traffic
+                    </span>
+                    <strong>
+                        {{ result.normal }}
+                    </strong>
+                </div>
+                <div class="stat-card attack">
+                    <span>
+                        Attack Traffic
+                    </span>
+                    <strong>
+                        {{ result.attack }}
+                    </strong>
+                </div>
+                <div class="stat-card">
+                    <span>
+                        Attack Percentage
+                    </span>
+                    <strong>
+                        {{ result.attack_percentage }}%
+                    </strong>
+                </div>
+            </div>
+            <!-- AI MODEL RESULTS -->
+            <div class="models-grid">
+                <!-- MACHINE LEARNING -->
+                <div class="model-card">
+                    <div class="model-title">
+                        <span class="model-icon">
+                            🤖
+                        </span>
+                        <div>
+                            <h3>
+                                Machine Learning
+                            </h3>
+                            <p>
+                                Random Forest
+                            </p>
+                        </div>
+                    </div>
+                    <div class="model-stats">
+                        <div>
+                            <span>
+                                Normal
+                            </span>
+                            <strong>
+                                {{ result.ml_normal }}
+                            </strong>
+                        </div>
+                        <div>
+                            <span>
+                                Attacks
+                            </span>
+                            <strong>
+                                {{ result.ml_attack }}
+                            </strong>
+                        </div>
+                        <div>
+                            <span>
+                                Attack Rate
+                            </span>
+                            <strong>
+                                {{ result.ml_attack_percentage }}%
+                            </strong>
+                        </div>
+                        <div>
+                            <span>
+                                Confidence
+                            </span>
+                            <strong>
+                                {{ result.ml_confidence }}%
+                            </strong>
+                        </div>
+                    </div>
+                </div>
+                <!-- DEEP LEARNING -->
+                <div class="model-card">
+                    <div class="model-title">
+                        <span class="model-icon">
+                            🧠
+                        </span>
+                        <div>
+                            <h3>
+                                Deep Learning
+                            </h3>
+                            <p>
+                                Neural Network
+                            </p>
+                        </div>
+                    </div>
+                    <div class="model-stats">
+                        <div>
+                            <span>
+                                Normal
+                            </span>
+                            <strong>
+                                {{ result.dl_normal }}
+                            </strong>
+                        </div>
+                        <div>
+                            <span>
+                                Attacks
+                            </span>
+                            <strong>
+                                {{ result.dl_attack }}
+                            </strong>
+                        </div>
+                        <div>
+                            <span>
+                                Attack Rate
+                            </span>
+                            <strong>
+                                {{ result.dl_attack_percentage }}%
+                            </strong>
+                        </div>
+                        <div>
+                            <span>
+                                Confidence
+                            </span>
+                            <strong>
+                                {{ result.dl_confidence }}%
+                            </strong>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- MODEL AGREEMENT -->
+            <div class="agreement-card">   
+                <div>
+                    <span>
+                        AI Model Agreement
+                    </span>
+                    <h3>
+                        {{ result.model_agreement_percentage }}%
+                    </h3>
+                </div>
+                <p>
+                    Both AI models produced the same
+                    classification for
+                    {{ result.model_agreement }}
+                    records.
+                </p>
+            </div>
+            <!-- MATPLOTLIB CHART -->
+            {% if chart_path %}
+            <section class="chart-card">
+                <div class="chart-header">
+                    <h2>
+                        Traffic Analysis
+                    </h2>
+                    <p>
+                        AI-detected normal and malicious
+                        network traffic.
+                    </p>
+                </div>
+                <img
+                src="{{ url_for(
+                    'static',
+                    filename='charts/detection_analysis.png'
+                    ) }}"
+                    alt="AI Intrusion Detection Analysis"
+                    >
+                </section>
+                {% endif %}
+        </section>
+            {% endif %}
+    </main>
+</body>
+</html>
+        

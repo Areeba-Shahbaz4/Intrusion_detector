@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Security Reports | AI IDS</title>
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/reports.css') }}">    
+</head>
+<body>
+    <div class="reports-container">
+        <!-- HEADER -->
+        <div class="reports-header">
+            <div>
+                <h1>🛡️ Security Reports</h1>
+                <p>
+                    Zero Trust AI Intrusion Detection Reports
+                </p>
+            </div>
+            <div class="header-actions">
+                <a href="/dashboard" class="back-btn">
+                    ← Dashboard
+                </a>
+                <a href="/logout" class="logout-btn">
+                    Logout
+                </a>
+            </div>
+        </div>
+        <!-- REPORT INTRO -->
+        <div class="report-intro">
+            <h2>Detection History</h2>
+            <p>
+                Review previous AI-powered network security
+                scans and detected threats.
+            </p>
+        </div>
+        <!-- REPORT TABLE -->
+        {% if reports %}
+        <div class="report-card">
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>
+                                #
+                            </th>
+                            <th>
+                                Total Records
+                            </th>
+                            <th>
+                                Normal
+                            </th>
+                            <th>
+                                Attacks
+                            </th>
+                            <th>
+                                Attack Rate
+                            </th>
+                            <th>
+                                Security Status
+                            </th>
+                            <th>
+                                Scan Time
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for report in reports %}
+                        <tr>
+                            <td>
+                                {{ loop.index }}
+                            </td>
+                            <td>
+                                {{ report[0] }}
+                            </td>
+                            <td class="normal">
+                                {{ report[1] }}
+                            </td>
+                            <td class="attack">
+                                {{ report[2] }}
+                            </td>
+                            <td>
+                                {{ report[3] }}%
+                            </td>
+                            <td>
+                                {% if report[4] == "CRITICAL" %}
+                                <span class="status critical">
+                                    🔴 CRITICAL
+                                </span>
+                                {% elif report[4] == "HIGH RISK" %}
+                                <span class="status high">
+                                    🟠 HIGH RISK
+                                </span>
+                                {% elif report[4] == "MEDIUM RISK" %}
+                                <span class="status medium">
+                                    🟡 MEDIUM RISK
+                                </span>
+                                {% else %}
+                                <span class="status low">
+                                    🟢 LOW RISK
+                                </span>
+                                {% endif %}
+                            </td>
+                            <td>
+                                {{ report[5] }}
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        {% else %}
+        <!-- NO REPORTS -->
+        <div class="no-reports">
+            <div class="empty-icon">
+                📊
+            </div>
+            <h2>
+                No Security Reports Yet
+            </h2>
+            <p>
+                Run an AI intrusion scan to generate
+                your first security report.
+            </p>
+            <a href="/predict" class="scanner-btn">
+                🔍 Start AI Scan
+            </a>
+        </div>
+        {% endif %}
+        <!-- FOOTER -->
+        <div class="reports-footer">
+            <p>
+                🟢 AI Detection Engine Active
+            </p>
+            <p>
+                🛡 Zero Trust Security Architecture
+            </p>
+        </div>
+    </div>
+</body>
+</html>
